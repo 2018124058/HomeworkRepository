@@ -1,0 +1,36 @@
+/* 쇼핑몰 이름 */
+
+h1  {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 1px royalblue; }
+
+/* 상단 메뉴 */
+
+nav {font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px; color: white;
+    text-align: justify;
+    border: royalblue; background-color: royalblue;}
+
+nav span    {margin: 0.5em;}
+
+nav a   {text-decoration: none; color: white;}  
+#current   {border: 2px navy; background-color: navy; padding: 0.08em;}
+
+span:hover  {background-color: skyblue; padding: 0.09em;}
+
+/* 유저 정보 입력란 */
+section.form    {border-radius: 20pt; background-color: skyblue;
+                padding: 40px; padding-top: 20px; margin: 5px; margin-top: 30px;
+                text-align: justify;}
+
+.purpose        {font-size: 1.2em; font-weight: bold;}
+
+.submit         {width: 5em; height: 2em; 
+                border: white; border-radius: 0.4em; background-color: #ABEBC6 ;
+                text-align: center;}
+
+.reset          {width: 5em; height: 2em; 
+                border: white; border-radius: 0.4em; background-color: #F5B7B1;
+                text-align: justify;}
