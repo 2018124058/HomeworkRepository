@@ -1,0 +1,119 @@
+
+/*.shoppingmall   {display: flex; 
+                justify-content: center; 
+                flex-direction: column; 
+                align-items: center;}*/
+body    {margin: 0px;}
+
+/* 쇼핑몰 이름 (header) */
+h1  {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    -webkit-text-stroke: 1px royalblue;
+    animation-name: movingheader; animation-duration: 2s;
+    animation-timing-function: linear; animation-iteration-count: 1; animation-delay: 1s; }
+
+/* 헤더 텍스트 애니메이션: 오른쪽에서 왼쪽*/
+@keyframes movingheader
+{
+    0% {top: 0px; left: 500px;}
+    100% {top: 10px; left: -100px;} 
+}
+
+
+/* 상단 메뉴 */
+
+nav {font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px; color: white;
+    text-align: justify;
+    border: royalblue; background-color: royalblue;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%; height: 100% }
+
+nav p   {margin-top: 0px; margin-bottom: 0px; 
+        padding: 10px;}
+
+nav a   {text-decoration: none; color: white; }  
+#current   {border: 2px navy; background-color: navy;}
+
+nav p:hover  {background-color: skyblue;}
+
+
+/* 메인 컨텐츠 */
+.main-contents  {display: flex;
+                flex-direction: column;
+                flex-wrap: no-wrap;
+                align-items: center;
+                justify-content: center;
+                width: 100%;}
+.content-title  {text-align: center;
+                font-weight: bold;
+                margin-top: 50px;}
+
+/* 상품 판매란 */
+.items  {display: flex; 
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;}
+
+.item-image {width: 80%; height: 75%; margin-left: 10%;} /*아이템 배열*/
+.one-item p {text-align: center;}
+
+/* 상품 애니메이션*/
+
+#item1:hover    {transition: transform 2s;
+                transform: rotate(360deg);}
+#item2:hover    {transition: transform 2s;
+                transform: scale(2,2);}
+
+/* 쇼핑몰 설명란*/
+.description    { margin-right: 2%; margin-left: 2%;}
+.description-content    {column-count: 2;
+                        column-rule: 1px outset black;}
+
+/*스크린 너비 481~800px */
+@media screen and (min-width:481px) and (max-width:800px){
+
+    nav {flex-direction: column;
+        align-items: center;}
+    .items  {flex-wrap: wrap;}
+    .one-item   {flex: 50%;}  /*한 라인에 아이템 두 개*/
+    .description-content    {column-count: 1;} /* no column*/
+
+}
+
+/*스크린 너비 ~480px */
+@media screen and (max-width:480px){
+    
+    nav {flex-direction: column;
+        align-items: center;}
+    .items  {flex-wrap: wrap;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;}
+    
+    .one-item   {flex: 100%;} /* 한 라인에 아이템 한 개*/
+    .description-content    {column-count: 1;} /*no column*/
+
+}
+
+
+/* 유저 정보 입력란 (login, signup) */
+section.form    {border-radius: 20pt; background-color: skyblue;
+    padding: 40px; padding-top: 20px; margin: 5px; margin-top: 30px;
+    text-align: justify;}
+
+.purpose        {font-size: 1.2em; font-weight: bold;}
+
+.submit         {width: 5em; height: 2em; 
+    border: white; border-radius: 0.4em; background-color: #ABEBC6 ;
+    text-align: center;}
+
+.reset          {width: 5em; height: 2em; 
+    border: white; border-radius: 0.4em; background-color: #F5B7B1;
+    text-align: justify;}
