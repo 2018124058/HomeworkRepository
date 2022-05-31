@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>signup</title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body>
+        <section class = "shoppingmall">
+            <header>
+                <h1>Shopping World</h1> 
+            </header>
+            
+            <nav>
+                <p id = "current"><a href = index.html>메인페이지</a></p>
+                <p><a href = "login.html">로그인</a></p>
+                <p><a href = "signup.html">회원가입</a></p>
+                <p>쇼핑하기</p>
+                <p>장바구니</p>
+            </nav>
+
+            <div>
+                <aside>
+                  <form>
+                    <div>
+                      <label for="category">상품 카테고리 선택</label>
+                      <select id="category">
+                        <option selected>All</option>
+                        <option>Icecream</option>
+                        <option>Macaroon</option>
+                        <option>Fruit</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="searchTerm">상품 검색:</label>
+                      <input type="text" id="searchTerm" placeholder="chocolate">
+                    </div>
+                    <div>
+                      <button>검색</button>
+                    </div>
+                  </form>
+                </aside>
+
+                <main>
+                
+                </main>
+
+            </div>
+            <div id = "items">
+
+            </div>
+            
+            
+        </section>
+
+        <script>
+            // json 불러오기
+            fetch("product.json")
+                .then( response => {
+                    if (!response.ok) {
+                      throw new Error(`HTTP error: ${response.status}`);
+                    }
+                return response.json();
+                })
+                //jason을 받아 함수 실행  
+                .then(json => displayItems(json))
+                    
+                //에러 발생 시 에러메세지 출력 
+                .catch( error => {
+                    console.error('Error: ', error)});
+            
+            function displayItems(products) {
+              const category = document.querySelector('#category');
+              const searchTerm = document.querySelector('#searchTerm');
+              const searchBtn = document.querySelector('button');
+              const main = document.querySelector('main');
+
+              let lastCategory = category.value;
+              let lastSearch = '';
+
+              let categoryGroup;
+              let finalGroup;
+
+              finalGroup = products;
+              updateDisplay();
+
+              categoryGroup = [];
+              finalGroup = [];
+
+            
+              searchBtn.addEventListener('click', selectCategory);
+
+              function selectCategory(e) {
+    
+                e.preventDefault();
+            
+                
+                categoryGroup = [];
+                finalGroup = [];
+            
+                if (category.value === lastCategory && searchTerm.value.trim() === lastSearch) {
+                  return;
+                } else {
+                  
+                  lastCategory = category.value;
+                  lastSearch = searchTerm.value.trim();
+                  
+                  if (category.value === 'All') {
+                    categoryGroup = products;
+                    selectProducts();
+                  
+                  } else {
+                    
+                    const lowerCaseType = category.value.toLowerCase();
+                   
+                    categoryGroup = products.filter( product => product.type === lowerCaseType );
+                    
+                    selectProducts();
+                  }
+                }
+              }
+
+            
+              function selectProducts() {
+        
+                if (searchTerm.value.trim() === '') {
+                  finalGroup = categoryGroup;
+                } else {
+                  
+                  const lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+                  
+                  finalGroup = categoryGroup.filter( product => product.name.includes(lowerCaseSearchTerm));
+                }
+                
+                updateDisplay();
+              }
+          
+              
+              function updateDisplay() {
+                
+                while (main.firstChild) {
+                  main.removeChild(main.firstChild);
+                }
+            
+                
+                if (finalGroup.length === 0) {
+                  const para = document.createElement('p');
+                  para.textContent = 'No results to display!';
+                  main.appendChild(para);
+               
+                } else {
+                  for (const product of finalGroup) {
+                    fetchBlob(product);
+                  }
+                }
+              }
+          
+              function fetchBlob(product) {
+                
+                const url = `img/${product.image}`;
+                
+                fetch(url)
+                  .then( response => {
+                    if (!response.ok) {
+                      throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    return response.blob();
+                  })
+                  .then( blob => showProduct(blob, product) )
+                  .catch( err => console.error(`Fetch problem: ${err.message}`) );
+              }
+          
+              
+              function showProduct(blob, product) {
+                
+                const objectURL = URL.createObjectURL(blob);
+                
+                const section = document.createElement('section');
+                const image = document.createElement('img');
+                
+                
+                section.setAttribute('class', product.type);
+                
+                image.src = objectURL;
+                image.alt = product.name;
+                
+                main.appendChild(section);
+                section.appendChild(image);
+
+                section.addEventListener('click', showDetail);
+                function showDetail(oneitem){
+                    section.innerHTML += `${product.name}`;
+                    section.innerHTML += `  ${product.price}원`;
+                };
+              }
+
+            
+            }
+            
+        </script>
+    </body>
+</html>

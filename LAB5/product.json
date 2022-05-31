@@ -1,0 +1,105 @@
+[
+    {
+        "name": "chocolate icecream",
+        "price": 3000,
+        "image": "chocolate_icecream.jpg",
+        "type": "icecream"
+    },
+    {
+        "name": "strawberry icecream",
+        "price": 3000,
+        "image": "strawberry_icecream.jpg",
+        "type": "icecream"
+    },
+    {
+        "name": "vanilla icecream",
+        "price": 3000,
+        "image": "vanilla_icecream.jpg",
+        "type": "icecream"
+    },
+    {
+        "name": "yogurt icecream",
+        "price": 3000,
+        "image": "yogurt_icecream.jpg",
+        "type": "icecream"
+    },
+    {
+        "name": "green tea icecream",
+        "price": 3000,
+        "image": "greentea_icecream.jpg",
+        "type": "icecream"
+    },
+    {
+        "name": "chocolate macaroon",
+        "price": 2500,
+        "image": "chocolate_macaroon.jpg",
+        "type": "macaroon"
+    },
+    {
+        "name": "strawberry macaroon",
+        "price": 2500,
+        "image": "strawberry_macaroon.jpg",
+        "type": "macaroon"
+    },
+    {
+        "name": "vanilla macaroon",
+        "price": 2500,
+        "image": "vanilla_macaroon.jpg",
+        "type": "macaroon"
+    },
+    {
+        "name": "yogurt macaroon",
+        "price": 2500,
+        "image": "yogurt_macaroon.jpg",
+        "type": "macaroon"
+    },
+    {
+        "name": "green tea macaroon",
+        "price": 2500,
+        "image": "greentea_macaroon.jpg",
+        "type": "macaroon"
+    },
+    {
+        "name": "strawberry",
+        "price": 7000,
+        "image": "strawberry.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "mango",
+        "price": 8000,
+        "image": "mango.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "banana",
+        "price": 4000,
+        "image": "banana.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "watermelon",
+        "price": 10000,
+        "image": "watermelon.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "apple",
+        "price": 4000,
+        "image": "apple.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "pineapple",
+        "price": 6000,
+        "image": "pineapple.jpg",
+        "type": "fruit"
+    },
+    {
+        "name": "peach",
+        "price": 6000,
+        "image": "peach.jpg",
+        "type": "fruit"
+    }
+    
+]
