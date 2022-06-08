@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>signup</title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css"/>
+    </head>
+
+    <body>
+        <section class = "shoppingmall">
+            <header>
+                <h1>Shopping World</h1> 
+            </header>
+            
+            <nav>
+                <p id = "current"><a href = '/'>메인페이지</a></p>
+                <p><a href = "/login">로그인</a></p>
+                <p><a href = "/signup">회원가입</a></p>
+                <p>쇼핑하기</p>
+                <p>장바구니</p>
+            </nav>
+
+            <section class = "form">
+                <p class = "purpose">개인정보(필수)</p>
+                <form method = "post" action = "http://example.com">
+                    <p><label>이름: <input type = "text" name = "name" size = "10" autofocus required/></label></p>
+                    <p><label>생년월일: <input type = "date" name = "date" required/> </label> 
+                    <label>&nbsp;&nbsp;나이: <input type = "number" name = "age" min = "0" max = "150" step = "1" value = "1"
+                        required/></label></p>
+                    <p><label>전화번호: <input type = "tel" name = "tel" placeholder = "###-####-####"
+                    pattern = "\d{3}-\d{4}-\d{4}" required/></label></p>
+                    <p><label>이메일주소: <input type = "email" name = "email" placeholder = "name@email.com" 
+                    required/></label></p>
+                    <p><label>아이디: <input type = "text" name = "id" size = "10" required/></label></p>
+                    <p><label>비밀번호: <input type = "password" name = "password" size = "10" required/></label></p>
+                    <p><label>비밀번호 확인: <input type = "password" name = "passwordRetype" size = "10"
+                    required/></label></p>
+                    
+                    <p>
+                        메일 수신에 동의하시나요?
+                        <label>네 <input type = "radio" name = "agree" value = "yes"/></label>
+                        <label>아니요 <input type = "radio" name = "agree" value = "no"/></label>
+                    </p>
+                    <br>
+                    
+                    <span><input class = "submit" type = "submit" value = "회원 등록"/></span>
+                    <span><input class = "reset" type = "reset" value = "취소"/></span>
+                </form>            
+
+            </section>
+        </section>
+    </body>
+</html>
